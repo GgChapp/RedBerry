@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #131516;
+    display: flex;
+}
+h1{
+    color: #fe3b1f;
+    font-family: 'Rowdies', cursive;
+    font-weight: 200;
+    font-size: 35px;
+    margin: auto;
+    margin-top: 20%;
+}

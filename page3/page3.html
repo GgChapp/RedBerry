@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<meta charset="utf-8">
+	<script src="../scripts/helpers.js" type="text/javascript"></script>
+	<script src="https://kit.fontawesome.com/2b05f93bd1.js" crossorigin="anonymous"></script>
+	<title></title>
+</head>
+<body>
+	<div class="main">
+		<div class="left-side">
+			<h1>Tell Us About Your Skills</h1>
+			<div class="lbls">
+				 <select id="skills">
+				 </select> 
+
+			    <label for="experience"></label>
+			    <input type="number" style="" id="experience" placeholder="Experience Duration in Years">
+			</div>
+			<button type="button" class="btn" onClick="addProgrammingLanguage()">Add Programing Language</button>
+
+			<div class="" id="languages">
+			</div>
+		</div>
+		<div class="right-side">
+			<h1>A bit about our battles</h1>
+			<p>As we said, Redberry has been on the field for quite some time now, and we have touched and embraced a variety of programming languages, technologies, philosophies, and frameworks. We are battle-tested in PHP Laravel Stack with Vue.js, refined in React, and allies with Serverside technologies like Docker and Kubernetes, and now we have set foot in the web3 industry.</p>
+		</div>
+	</div>
+	<div class="arrows">
+		<a href="../page2/page2.html" class="previous round">&#8249;</a>
+		<a href="../page4/page4.html" class="next round">&#8250;</a>
+	</div>
+
+	<script>
+		
+		let languagesElement = document.getElementById("languages");
+
+		removeProgrammingLanguage = (skillId) => {
+			let languages = JSON.parse(localStorage.getItem("languages"))
+			languages = languages.filter(language => language.id !== skillId.toString())
+
+			let label = document.getElementById(`${skillId}-label`)
+			label.parentNode.removeChild(label)
+
+			localStorage.setItem("languages", JSON.stringify(languages))
+		}
+
+		createSkillElement = (languagesElement, skillId, skillText, skillExperience) => {
+			let parentElement = document.createElement("label")
+			parentElement.setAttribute("id", `${skillId}-label`)
+			parentElement.setAttribute("class", "ozbetaClass")
+			parentElement.appendChild(document.createTextNode(`${skillText} experience: ${skillExperience}`))
+
+
+			let deleteButton = document.createElement("i")
+			deleteButton.setAttribute("class", "fa-solid fa-circle-minus")
+			deleteButton.setAttribute("id", `deleteButton`)
+			deleteButton.setAttribute("onClick", `removeProgrammingLanguage(${skillId})`)
+
+			parentElement.appendChild(deleteButton)
+
+			languagesElement.appendChild(parentElement)
+			languagesElement.appendChild(document.createElement("br"))
+		}
+
+		if(localStorage.getItem("languages") !== null){
+			let languages = JSON.parse(localStorage.getItem("languages"))
+			languages.forEach(language => {
+				createSkillElement(languagesElement, language.id, language.text, language.experience)
+			})
+		}
+
+		addProgrammingLanguage = () => {
+			let skillsElement = document.getElementById("skills");
+
+			let skillId = skillsElement.options[skillsElement.selectedIndex].id;
+			let skillText = skillsElement.options[skillsElement.selectedIndex].text;
+			let skillExperience = document.getElementById("experience").value;
+
+			let languages = JSON.parse(localStorage.getItem("languages"));
+
+			if(languages === null){
+				localStorage.setItem("languages", JSON.stringify([{id: skillId, text: skillText, experience: skillExperience}]))
+			} else {
+				languages.push({id: skillId, text: skillText, experience: skillExperience})
+				localStorage.setItem("languages", JSON.stringify(languages))
+			}
+
+			createSkillElement(languagesElement, skillId, skillText, skillExperience)
+		}
+
+		getSkills()
+            .then((skills) => {
+                let dropdown = document.getElementById("skills");
+
+                skills.forEach(skill => {
+                    var option = document.createElement("option");
+                    option.appendChild(document.createTextNode(skill.title));
+                    option.setAttribute("id", skill.id);
+
+                    dropdown.appendChild(option);
+                });
+            })
+	</script>
+</body>
+
+</html>

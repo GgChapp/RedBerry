@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<script src="../scripts/page2.js"></script>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div class="main">
+		<div class="page-1-text-left">
+			<h1>Hey, Rocketeer, what are your coordinates?</h1>
+		</div>
+		<div class="container-right">
+			<div class="page-1-text-right">
+			<h1>Redberry Origins</h1>
+			</div>
+		</div>
+	</div>
+	<div class="info">
+		<form>
+		    <label for="fname"></label>
+		    <input type="text"  id="fname" minlength="2" required="" name="First Name" placeholder="First Name" required>
+
+		    <label for="lname"></label>
+		    <input type="text" id="lname" minlength="2" name="Last Name" placeholder="Last Name" required>
+
+		    <label for="E-Mail"></label>
+		    <input type="email" id="email" name="email" placeholder="E-Mail" required="">
+
+		    <label for="tel"></label>
+
+		    <input type="tel" value="+995 5" id="phone" name="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="5-- --- ---" minlength="14" maxlength="14">
+		</form>
+	</div>
+	<div class="redberry-story">
+		<p>You watch "What? Where? When?" Yeah. Our founders used to play it. That's where they got a question about a famous American author and screenwriter Ray Bradbury. Albet, our CEO Gaga Darsalia forgot the exact name and he answered Ray Redberry. And at that moment, a name for a yet to be born company was inspired - Redberry 😇</p>
+	</div>
+	<div class="arrows">
+		<a href="../index.html" class="previous round">&#8249;</a>
+		<a href="../page3/page3.html" onClick="savePersonalInformation()" class="next round">&#8250;</a>
+	</div>
+	
+	<script>
+		if(localStorage.getItem("personalInformation") !== null) {
+			let personalInformation = JSON.parse(localStorage.getItem("personalInformation"));
+
+			document.getElementById("fname").value = personalInformation.firstName;
+			document.getElementById("lname").value = personalInformation.lastName;
+			document.getElementById("email").value = personalInformation.email;
+			document.getElementById("phone").value = personalInformation.telephoneNumber;
+		}
+
+		savePersonalInformation = () => {
+			let firstName = document.getElementById("fname").value;
+			let lastName = document.getElementById("lname").value;
+			let email = document.getElementById("email").value;
+			let telephoneNumber = document.getElementById("phone").value;
+				
+			localStorage.setItem("personalInformation",
+				JSON.stringify(
+					{
+						firstName: firstName,
+						lastName: lastName,
+						email: email,
+						telephoneNumber: telephoneNumber
+					}
+				)
+			)}
+	</script>
+</body>
+</html>

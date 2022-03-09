@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(
+    to right, 
+    #ffffff 0%, 
+    #ffffff 50%, 
+    #131516 50%, 
+    #131516 100%
+  );
+}
+.main {
+    display: flex;
+    margin-top: 60px;
+}
+
+.page-1-text-left{
+    color: #fe3b1f;
+    font-size: 23px;
+    text-align: center;
+    max-width: 50%;
+}
+.page-1-text-left h1{
+    padding: 0 100px;
+}
+
+.page-1-text-right{
+    color: #fe3b1f;
+    font-size: 23px;
+    float: right;
+}
+.container-right{
+    margin-left: 12%;
+}
+h1{
+    font-family: 'Rowdies', cursive;
+    font-weight: 200;
+}
+input[type=text], select, input[type=tel], input[type=email] {
+  width: 25%;
+  padding: 12px 40px;
+  margin: 20px;
+  margin-left: 12%;
+  display: block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+}
+.info{
+    margin-top: 60px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.redberry-story p{
+    margin-top: -20%;
+    max-width: 30%;
+    margin-right: 8%;
+    float: right;
+    font-size: 16px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 2;
+}
+
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 1px 6px;
+}
+
+.previous {
+    border: #fe3b1f solid 2px;
+    background-color: white;
+    color: #fe3b1f;
+}
+
+.next {
+    border: #fe3b1f solid 2px;
+    background-color: white;
+    color: #fe3b1f;
+}
+.round {
+  border-radius: 50%;
+}
+.arrows{
+    max-width: 50%;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 10%;
+}
+a{
+    text-decoration: none;
+  display: inline-block;
+  padding: 1px 6px;
+}

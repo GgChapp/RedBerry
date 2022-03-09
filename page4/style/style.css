@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(
+    to right, 
+    #ffffff 0%, 
+    #ffffff 50%, 
+    #131516 50%, 
+    #131516 100%
+);
+}
+
+.main {
+    display: flex;
+    margin-top: 60px;
+}
+.left-side{
+    width: 50%;
+    text-align: center;
+}
+.right-side{
+    width: 50%;
+    text-align: center;
+}
+h1{
+    color: #fe3b1f;
+    font-family: 'Rowdies', cursive;
+    font-weight: 200;
+    font-size: 35px;
+}
+p{
+    margin-top: 10%;
+    padding: 0 15%;
+    text-align: left;
+    font-size: 16px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 2;
+}
+.quest{
+    margin-top: 7%;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 2;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 25%;
+}
+.q-2{
+    margin-top: 30px;
+}
+.covid-date{
+    width: 50%;
+    padding: 13px;
+}
+.q-3{
+    margin-top: 30px;
+    margin-bottom: 7%;
+}
+.previous {
+    border: #fe3b1f solid 2px;
+    background-color: white;
+    color: #fe3b1f;
+}
+
+.next {
+    border: #fe3b1f solid 2px;
+    background-color: white;
+    color: #fe3b1f;
+}
+.round {
+  border-radius: 50%;
+}
+.arrows{
+    max-width: 50%;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 10%;
+}
+a{
+    text-decoration: none;
+  display: inline-block;
+  padding: 1px 6px;
+}
